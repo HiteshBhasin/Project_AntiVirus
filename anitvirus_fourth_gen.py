@@ -1,5 +1,7 @@
 import yara
 import hashlib
+from pathlib import Path
+import os
 
 '''
 purpose of this script will be to use hashlib first 
@@ -16,10 +18,12 @@ file with yara rules to make sure it is legit.
 
 
 buffer_size = 4906
-def has_check(file_path):
+def hash_check(file_path):
     sha256 = hashlib.sha256()
     with open (file_path, 'rb') as raw_bin_file:
         while chunk:= raw_bin_file.read(buffer_size):
             sha256.update(chunk)
     return sha256.hexdigest()
+
+print(Path.cwd())
     

@@ -5,6 +5,7 @@ public class labs {
 
     public static void main(String[] args) {
         // bitSwap();
+        intToBinaryString(632);
     }
 
     public static int bitSwap(){
@@ -52,11 +53,16 @@ public class labs {
 
     private static String intToBinaryString(int x){
         String s =" ";
-        s+=x%2;
-        x=x/2;
+        while (x>0) {
+            s+=x%2;
+            x=x/2;
+        }
         return s;
     }
-    private static void carryBits(int x, int y){
 
+    private static void carryBits(int x, int y){
+        String one = intToBinaryString(x);
+        String two = intToBinaryString(y);
     }
+   
 }

@@ -9,12 +9,6 @@
 #         if k>dist:
             
 
-def maximumNumber(self, num: str, change: List[int]) -> str:           
-            flag = False
-            res = " "
-            
-            for digit in num:
-                d = int(digit)
-                if change[d]>d:
+
             
         

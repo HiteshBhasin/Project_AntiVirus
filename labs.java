@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -63,6 +65,12 @@ public class labs {
     private static void carryBits(int x, int y){
         String one = intToBinaryString(x);
         String two = intToBinaryString(y);
+        Queue<Character> newQue = new LinkedList<>();
+        if (one.length()!=two.length()){
+            System.out.println("this is not true");
+        } else{
+
+        }
     }
    
 }

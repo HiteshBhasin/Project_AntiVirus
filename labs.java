@@ -66,10 +66,51 @@ public class labs {
         String one = intToBinaryString(x);
         String two = intToBinaryString(y);
         Queue<Character> newQue = new LinkedList<>();
-        if (one.length()!=two.length()){
-            System.out.println("this is not true");
-        } else{
+        String result = " ";
+        one = trimLeadingZeros(one);
+        two = trimLeadingZeros(two);
+        int n = one.length();
+        int m = two.length();
+        StringBuilder prefix = new StringBuilder();
+        if (n<m){
+            int diff = m-n;
+            for(int i =diff-1 ; i>=0;i--){
+                prefix.append("0");
+            }
+        }
+        one = prefix+one;
+        // there is another way of doing this. 
+        /*for (int j = m - 1; j >= 0; j--) {
+        int bit1 = one.charAt(j) - '0';
+        int bit2 = two.charAt(j) - '0';
 
+        int sum = bit1 + bit2 + carry;
+        result = (sum % 2) + result;
+         carry = sum / 2;
+}
+
+            if (carry > 0) {
+          result = "1" + result;
+            }
+         * but i will continue with the below. 
+         * 
+         */
+        for (int j = m-1; j>=0;j--){
+            while(!newQue.isEmpty())
+            if (one.charAt(j)=='1' && two.charAt(j) =='0' ){
+                result+='0';
+            } else if(one.charAt(j)=='1' && two.charAt(j) =='1' ){
+                result+=0;
+                newQue.add('1');
+            }
+        }
+    }
+    private static String trimLeadingZeros(String s){
+        int firstPos = s.indexOf('1');
+        if (firstPos==-1){
+            return "0";
+        } else {
+            return s.substring(firstPos);
         }
     }
    
